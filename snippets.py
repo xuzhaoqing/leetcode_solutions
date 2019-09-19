@@ -8,7 +8,6 @@ def reverse_linked_list_iter(head: ListNode) -> ListNode:  # 迭代版
         temp.next = head
         head = temp
     return head
-
 # 2. Slow Pointer and Fast Pointer 快慢指针
 # This is often used in finding the middle node of the linked list
 #                   or checking if the graph is cyclic
