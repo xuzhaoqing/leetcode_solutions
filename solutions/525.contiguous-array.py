@@ -43,6 +43,15 @@
 # @lc code=start
 class Solution:
     def findMaxLength(self, nums: List[int]) -> int:
+         maxlen, count, dp = 0, 0, {0:-1} # 0 -> -1
+        for i in range(len(nums)):
+            count += (1 if nums[i] else -1)
+            if count in dp:
+                maxlen = max(maxlen, i - dp[count])
+            else:
+                dp[count] = i
+        return maxlen
+        
         
 # @lc code=end
 
