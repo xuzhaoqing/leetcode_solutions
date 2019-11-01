@@ -33,8 +33,10 @@ def pathMaximumScore(matrix):
     if not matrix:
         return -1
     R,C = len(matrix), len(matrix[0])
-    dp = [[float('inf') for _ in range(C)] for _ in range(R)]
+    if R == 1 and C == 1:
+        return matrix[R-1][C-1]
 
+    dp = [[float('inf') for _ in range(C)] for _ in range(R)]
     for row in range(R):
         for col in range(C):
             if row == 0 and col == 0:
@@ -48,7 +50,8 @@ def pathMaximumScore(matrix):
             else:
                 dp[row][col] = min(matrix[row][col],max(dp[row-1][col], dp[row][col-1]))
     return dp[R-1][C-1]
+    
 
 if __name__ == "__main__":
-    input = [[5, 1],[4, 5]]
+    input = [[1]]
     print(pathMaximumScore(input))

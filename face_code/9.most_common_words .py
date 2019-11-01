@@ -24,7 +24,6 @@ def maxCommonWord(literatureText, wordsToExclude):
     wordsToExclude = set([w.lower() for w in wordsToExclude])
     words = ''.join([x.lower() if x.isalpha() else ' ' for x in literatureText ])
     words = [word for word in words.split() if word and word not in wordsToExclude]
-    print(words)
     counter = Counter(words)
     ret = []
     mostCommon = 0
@@ -37,6 +36,6 @@ def maxCommonWord(literatureText, wordsToExclude):
     return ret
 
 if __name__ == "__main__":
-    text = "Jack and Jill went to the market to buy bread and cheese. Cheese is Jack's and Jill’s favorite food."
+    text = "    "
     words = ["and", "he", "the", "to", "is", "Jack", "Jill"]
     print(maxCommonWord(text,words))
