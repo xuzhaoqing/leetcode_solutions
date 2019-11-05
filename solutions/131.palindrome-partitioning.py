@@ -35,18 +35,15 @@
 class Solution:
     def partition(self, s: str) -> List[List[str]]:
         ret = []
-
-        def dfs(remain,path):
-            if not remain:
-                ret.append(path)
+        def dfs(plist,remained):
+            if not remained:
+                ret.append(plist) 
+                return
             
-            for i in range(1,len(remain)+1):
-                if isPal(remain[:i]):
-                    dfs(remain[i:], path + [remain[:i]])
-        def isPal(st):
-            return st == st[::-1]
-        
-        dfs(s,[])
+            for i in range(1,len(remained)+1):
+                if remained[:i][::-1] == remained[:i]:
+                    dfs(plist+[remained[:i]], remained[i:])
+        dfs([],s)
         return ret
         
 # @lc code=end
