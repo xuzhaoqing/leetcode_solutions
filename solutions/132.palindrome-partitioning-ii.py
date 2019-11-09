@@ -32,22 +32,7 @@
 # @lc code=start
 class Solution:
     def minCut(self, s: str) -> int:
-        N = len(s)
-        if N == 0:
-            return 0
-        isPalindrome = [[False for _ in range(N)] for _ in range(N)]
-        cuts = [i for i in range(1,N+1)]
-        
-        for end in range(N):
-            for start in range(end+1):
-                if s[start] == s[end] and (end - start < 2 or isPalindrome[start+1][end-1]):
-                    isPalindrome[start][end] = True
-                    if start == 0:
-                        cuts[end] = 0
-                    else:
-                        cuts[end] = min(cuts[end],cuts[start-1] + 1)
-        
-        return cuts[N-1]
+
         
 # @lc code=end
 
