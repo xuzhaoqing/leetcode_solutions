@@ -43,9 +43,7 @@ class Solution:
         dp = [[False for _ in range(N)] for _ in range(N)]
         for end in range(N):
             for start in range(end,-1,-1):
-                if start == end:
-                    dp[start][end] = True
-                elif start + 1 == end:
+                if start + 1 > end - 1:
                     dp[start][end] = s[start] == s[end]
                 else:
                     dp[start][end] = s[start] == s[end] and dp[start+1][end-1]

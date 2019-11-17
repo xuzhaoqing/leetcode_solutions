@@ -35,19 +35,19 @@
 # @lc code=start
 class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
-        ans = []
-        def backtrack(S = '', left = 0, right = 0):
-            if len(S) == 2 * n:
-                ans.append(S)
-                return
+        self.ret = []
+
+        def backtrack(par,left,right):
+            if left == 0 and right == 0:
+                self.ret.append(''.join(par))
             
-            if left < n:
-                backtrack(S + '(', left+1, right)
+            if left > 0:
+                backtrack(par+['('], left-1,right)
             
-            if right < left:
-                backtrack(S + ')', left, right + 1 )
-            
-        backtrack()
-        return ans
+            if right > left:
+                backtrack(par+[')'], left, right-1)
+        backtrack([],n,n)
+        return self.ret
+
 # @lc code=end
 
