@@ -65,26 +65,28 @@
 from collections import Counter
 class Solution:
     def minDominoRotations(self, A: List[int], B: List[int]) -> int:
-        minSwap = len(A) + 1
-        for n in range(1,7):
-            c1, c2, no_values = 0,0, False
-            for i in range(len(A)):
-                if A[i] == n and B[i] == n:
-                    continue
-                elif A[i] == n:
-                    c2 += 1
-                elif A[i] != n and B[i] == n:
-                    c1 += 1
-                else:
-                    no_values = True
-                    break
-            if not no_values:
-                minSwap = min([minSwap,c1,c2])
+        # Greedy
+        def check(x):
+            
+            rotation_a, rotation_b = 0, 0
+            
+            for i in range(n):
+                if A[i] != x and B[i] != x:
+                    return -1
+                elif A[i] != x:
+                    rotation_a += 1
+                elif B[i] != x:
+                    rotation_b += 1
+            return min(rotation_a,rotation_b)
         
-        if minSwap <= len(A):
-            return minSwap
+    
+        n = len(A)
+        r = check(A[0])
+        
+        if r != -1 or A[0] == B[0]:
+            return r
         else:
-            return -1    
+            return check(B[0])
         
 # @lc code=end
 
