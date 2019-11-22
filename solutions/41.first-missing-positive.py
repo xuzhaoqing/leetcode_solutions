@@ -13,7 +13,7 @@
 # Total Submissions: 836.2K
 # Testcase Example:  '[1,2,0]'
 #
-# Given an unsorted integer array, find the smallest missingÂ positive integer.
+# Given an unsorted integer array, find the smallest missing positive integer.
 # 
 # Example 1:
 # 
