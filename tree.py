@@ -12,7 +12,7 @@ def sortedArrayToBST(nums):
     return node
 
 
-#2 Convert Sorted List to Binary Search Tree (Leetcode 109)
+#2 Convert Sorted Linked List to Binary Search Tree (Leetcode 109)
 def sortedListToBST1(head):
         # 递归版本， 首先利用快慢指针找到中间值，然后递归调用左右的子树
         if not head:

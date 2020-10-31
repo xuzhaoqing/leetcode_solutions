@@ -24,7 +24,6 @@ def find_middle_node(head):
     return slowPtr
 
 # 3. Insertion Sort
-
 def insertionSort(nums):
     for i in range(1,len(nums)):
         curNum = nums[i]
